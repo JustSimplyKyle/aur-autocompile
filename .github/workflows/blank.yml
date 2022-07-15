@@ -31,9 +31,6 @@ jobs:
         run: |
           docker build -t nodebb .
           docker run -d nodebb
-          mkdir build
-          cd build
-          mkdir pacarcarx;string=$(wc -l packages.aur); count=${string%% *};for i in {1..$count}; do name=`sed "$i\!d;q" ../packages.aur`;git clone "https://aur.archlinux.org/$name.git" ; cd $name; makepkg -s;cp $name*.pkg* ../pacarcarx ; cd ../ ; done
 
       - name: Release
         uses: softprops/action-gh-release@v1
