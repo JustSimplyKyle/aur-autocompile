@@ -30,7 +30,8 @@ jobs:
       - name: Docker
         run: |
           docker build -t nodebb .
-          docker run -d nodebb
+          docker run nodebb
+          docker cp nodebb:/home/builder/build/pacarcarx .
 
       - name: Release
         uses: softprops/action-gh-release@v1

@@ -6,11 +6,13 @@ RUN pacman --needed --noconfirm -Syu pacman-contrib git
 RUN useradd -m builder && \
   echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers 
 
-RUN chown builder:builder /home/builder -R 
 COPY entrypoint.sh /entrypoint.sh
+COPY packages.aur /home/builder/packages.aur
+RUN chown builder:builder /home/builder -R 
+RUN chmod +x /entrypoint.sh
+
 # Switch user and cwd
 USER builder
 WORKDIR /home/builder
 
 ENTRYPOINT ["/entrypoint.sh"]
-
