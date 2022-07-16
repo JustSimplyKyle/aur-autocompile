@@ -28,6 +28,7 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Docker
+        timeout-minutes: 10080
         run: |
           docker build -t nodebb .
           docker run nodebb
