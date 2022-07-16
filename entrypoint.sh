@@ -1,5 +1,5 @@
 #!/bin/bash
-sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 mkdir build
 cd build
 git clone https://aur.archlinux.org/paru.git
