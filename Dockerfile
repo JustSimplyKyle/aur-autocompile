@@ -7,7 +7,6 @@ RUN useradd -m builder && \
   echo 'builder ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers 
 
 COPY entrypoint.sh /entrypoint.sh
-COPY packages.aur /home/builder/packages.aur
 RUN chown builder:builder /home/builder -R 
 RUN chmod +x /entrypoint.sh
 
